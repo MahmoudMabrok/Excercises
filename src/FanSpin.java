@@ -30,7 +30,6 @@ public class FanSpin extends Application {
         vPane.setSpacing(18);
         vPane.setAlignment(Pos.CENTER);
 
-
         fanPane f = new fanPane(100 , 100 , 60 ) ;
 
         HBox   hBu = new HBox(25) ;
@@ -47,11 +46,11 @@ public class FanSpin extends Application {
 
          EventHandler<ActionEvent> handler = e->{
             f.updateStart();
-         };
+        };
 
         Timeline t = new Timeline(new KeyFrame(javafx.util.Duration.millis(100),handler ))   ;
         t.setCycleCount(Timeline.INDEFINITE);
-        t.setRate(40);
+        t.setRate(5);
         t.play();
         Label lRate = new Label(( ""+(int)t.getRate())) ;
 
