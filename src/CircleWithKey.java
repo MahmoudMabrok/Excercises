@@ -1,9 +1,14 @@
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import  javafx.application.Application ;
 import javafx.geometry.Insets;
 import  javafx.stage.Stage ;
 import javafx.scene.Scene ;
 import javafx.scene.layout.Pane ;
 import javafx.scene.shape.Circle ;
+import javafx.util.Duration;
+
 
 public class CircleWithKey  extends Application  {
 
@@ -37,6 +42,17 @@ public class CircleWithKey  extends Application  {
             }
 
         });
+
+        Timeline tl = new Timeline() ;
+        KeyFrame kx = new   KeyFrame(Duration.seconds(1) ,
+                e->cr.setCenterX(cr.getCenterX() + 10 )) ;
+        KeyFrame ky = new   KeyFrame(Duration.seconds(1) ,
+                e->cr.setCenterY(cr.getCenterY() + 10 )) ;
+
+        tl.getKeyFrames().addAll(kx ,ky) ;
+        tl.setCycleCount(4);
+        tl.play();
+
 
         Scene sc = new Scene(root ,400,400 ) ;
         stage.setScene(sc);
